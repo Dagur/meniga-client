@@ -41,6 +41,16 @@ class Meniga:
 
         return json.loads(r.text)
 
+    def synchronize(self):
+        if not self.session:
+            self._authenticate()
+
+        r = self.session.post(BASE_URL + "/Api/Transactions/StartSynchronization",
+                              headers={"user_agent": USER_AGENT, "__RequestVerificationToken": self.verification_token},
+                              data=json.dumps({"waitForCompleteMilliseconds": 5000}))
+
+        return json.loads(r.text)
+
     def get_transactions_page(self, params=None):
         """
         {
