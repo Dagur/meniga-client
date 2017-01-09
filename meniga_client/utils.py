@@ -1,5 +1,6 @@
 from html.parser import HTMLParser
 from datetime import datetime
+import time
 
 
 class TokenExtractor(HTMLParser):
@@ -14,4 +15,4 @@ class TokenExtractor(HTMLParser):
 
 
 def meniga_datetime(*args):
-    return "/Date({}+0000)/".format(int(datetime(*args).timestamp() * 1000))
+    return "/Date({}+0000)/".format(int(time.mktime(datetime(*args).timetuple()) * 1000))
