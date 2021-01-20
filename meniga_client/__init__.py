@@ -44,7 +44,7 @@ class Meniga:
                 "user_agent": USER_AGENT,
                 "Authorization": f"Bearer {self.verification_token}",
             },
-            json=params,
+            params=params,
         )
 
         return r.json()
@@ -71,8 +71,8 @@ class Meniga:
         params = {
             "take": take,
             "skip": skip,
-            "useExactDescription": str(useExactDescription),
-            "useExactMerchantTexts": str(useExactMerchantTexts),
+            "useExactDescription": str(useExactDescription).lower(),
+            "useExactMerchantTexts": str(useExactMerchantTexts).lower(),
         }
         if accountIds:
             params["accountIds"] = accountIds
@@ -96,7 +96,7 @@ class Meniga:
         params = {
             "skip": skip,
             "take": take,
-            "includeHidden": str(includeHidden),
-            "includeDisabled": str(includeDisabled),
+            "includeHidden": str(includeHidden).lower(),
+            "includeDisabled": str(includeDisabled).lower(),
         }
         return self._fetch("accounts", params)
