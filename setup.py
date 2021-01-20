@@ -3,7 +3,7 @@ from distutils.core import setup
 setup(
     name="meniga_client",
     packages=["meniga_client"],
-    version="0.9.0",
+    version="0.10.0",
     description="Client for the Meniga API",
     author="Dagur Ammendrup",
     author_email="dagurp@gmail.com",

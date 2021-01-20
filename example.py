@@ -1,11 +1,7 @@
-from meniga_client import Meniga, meniga_datetime
+from meniga_client import Meniga
 import json
 
-m = Meniga('your username', 'your password')
-params = {
-    'PeriodFrom': meniga_datetime(2016, 1, 1),
-    'PeriodTo': meniga_datetime(2016, 1, 2)
-}
-res = m.get_transactions_page(params)
+m = Meniga('your email', 'your password')
+res = m.get_accounts()
 
 print(json.dumps(res, sort_keys=True, indent=4))
